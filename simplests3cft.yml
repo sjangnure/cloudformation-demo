@@ -1,0 +1,15 @@
+Resources:
+  S3ObjectFunction:
+    Type: 'AWS::Lambda::Function'
+    Properties:
+      Description: S3 Object Custom Resource
+      Handler: lambda_function.lambda_handler
+      Role: 'arn:aws:iam::482781774333:role/service-role/index-photos-role-4u13jryo'
+      FunctionName: trs_lambda_test1
+      Layers:
+      - arn:aws:lambda:us-east-1:770693421928:layer:Klayers-python38-elasticsearch:4
+      Code:
+        S3Bucket: voicecontrolledsearchb2
+        S3Key: index-photos.zip
+      Timeout: 60
+      Runtime: python3.8
